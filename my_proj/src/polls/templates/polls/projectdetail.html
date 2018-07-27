@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Project Details{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="polls" %}
+{% endblock %}
+
+
+<!-- Benefits of the Django application -->
+{% block container %}
+<div class="container" style="margin-top: 50px;">
+  <div class="jumbotron">
+    <h1>Project detail</h1>
+    <p class="lead">View the details for your project.</p>
+  </div>
+
+  <h2>{{ user.get_full_name }}'s Project</h2>
+
+  <div class="container profile-body">
+    <div class="row">
+      <div class="col-sm-4">
+
+        <ul class="list-group">
+
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Project Title:</strong></span> {{ object.project }}</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Description:</strong></span> {{ object.description }}
+    	</li>
+
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Resolution:</strong></span> {{ object.resolution }}</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Budget:</strong></span> {{ object.budget }}</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Status:</strong></span> {{ object.state }}</li>
+        </ul>
+
+        <a href="{% url 'polls:project_update_form' object.id %}">
+        <button class="btn btn-primary" type="button" name="button">Edit project</button>  </a>
+
+        <a href="{% url 'polls:project_confirm_delete' object.id %}">
+        <button class="btn btn-primary btn default" type="button" name="button">Delete project</button>  </a>
+
+
+
+       </div>
+      <div class="col-sm-8">
+        <!-- {% for project in myproject %}
+        <h3>{{ myproject.project }}</h3>
+         <p>Project created by {{ user.get_full_name}} on {{ myproject.date_created }}</p>
+        {% endfor %} -->
+
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock container%}

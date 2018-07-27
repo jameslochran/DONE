@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}About{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="about" %}
+{% endblock %}
+
+<!-- Benefits of the Django application -->
+{% block container %}
+<div class="container">
+<div class="jumbotron">
+
+
+<div class="text-center">
+      <h1 class="display-4"> {% include "_brandname.html" %} Pricing</h1>
+      <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
+    </div>
+</div>
+
+
+
+
+
+  <div class='row'>
+    <div class="col-sm-6 col-md-4">
+
+
+          <div class="caption text-center">
+            <h4>Free</h4>
+          </div>
+          <div class="card-body text-center">
+            <h1>$0 <small class="text-muted">/ mo</small></h1>
+            <ul class="list-unstyled">
+              <li>10 users included</li>
+              <li>2 GB of storage</li>
+              <li>Email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+          </div>
+
+
+        </div>
+          <div class="col-sm-6 col-md-4">
+                  <div class="caption text-center">
+            <h4>Pro</h4>
+          </div>
+          <div class="card-body text-center">
+            <h1>$15 <small class="text-muted">/ mo</small></h1>
+            <ul class="list-unstyled">
+              <li>20 users included</li>
+              <li>10 GB of storage</li>
+              <li>Priority email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
+          </div>
+
+
+      </div>
+        <div class="col-sm-6 col-md-4">
+
+          <div class="card-header text-center">
+            <h4>Enterprise</h4>
+          </div>
+          <div class="card-body text-center">
+            <h1>$29 <small class="text-muted">/ mo</small></h1>
+            <ul class="list-unstyled">
+              <li>30 users included</li>
+              <li>15 GB of storage</li>
+              <li>Phone and email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+          </div>
+
+      </div>
+      </div>
+    </div>
+
+
+
+{% endblock container %}

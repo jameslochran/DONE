@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}My Projects{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="projects" %}
+{% endblock %}
+
+
+<!-- Benefits of the Django application -->
+{% block container %}
+<div class="container" style="margin-top: 100px;">
+  <div class="starter-template">
+    <h1>New Project</h1>
+    <p class="lead">Use this document as a way to quickly start any new project.</p>
+  </div>
+<h3>Answer a few quick questions to get started!</h3>
+<div class="container">
+  <h1 class="text-primary">Createa a new Project</h1>
+  <hr>
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="text-center">
+        <img title="profile picture" class="img-circle img-responsive" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="col-md-9">
+  <h3>Project Details</h3>
+  <form enctype="multipart/form-data" method="POST">
+{% crispy user_form %}
+{% crispy project_form %}
+  </form>
+</div>
+
+    <!-- edit form column -->
+
+{% endblock container%}

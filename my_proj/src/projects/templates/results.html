@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Polls{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="polls" %}
+{% endblock %}
+
+<!-- Benefits of the Django application -->
+{% block container %}
+<div class="container" style="margin-top: 100px;">
+
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+</div>
+{% endblock container%}

@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}poll{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="polls" %}
+{% endblock %}
+
+
+<!-- Benefits of the Django application -->
+{% block container %}
+<div class="container" style="margin-top: 50px;">
+<div class="jumbotron">
+
+  <form method="post">{% csrf_token %}
+      <p>Are you sure you want to delete "{{ object.project }}"?</p>
+      <input type="submit" value="Confirm" />
+  </form>
+</div>
+</div>
+{% endblock container%}

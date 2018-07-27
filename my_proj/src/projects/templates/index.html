@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Projects{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="projects" %}
+{% endblock %}
+
+
+<!-- Benefits of the Django application -->
+{% block container %}
+<div class="container" style="margin-top: 100px;">
+  <div class="starter-template">
+    <h1>New Project</h1>
+    <p class="lead">Use this document as a way to quickly start any new project.</p>
+  </div>
+<h3>Answer a few quick questions to get started!</h3>
+
+{% endblock container%}
